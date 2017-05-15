@@ -1,0 +1,47 @@
+{% extends "base_site.html" %}
+{% load staticfiles %}
+{% block container %}
+    <div id="text-results">
+        {% if article_text|length > 0 %}
+            {% if keys %}
+                <h1>Here's what we found</h1>
+                {% if keys.the_featured_embed_ %}
+                    {{keys.the_featured_embed_}}
+                {% endif %}
+                <div class="jumbotron">
+                        <p class="lead">Were these results useful? Please help us make this service more valuable and convenient for you by providing some feedback.</p> 
+                        <form action="{% url 'submit_to_email' %}" method="post" name="Feedback" role="form">
+                        {% csrf_token %}
+                        <input name="qr_id" type="hidden" value="{{qr.id}}"/>
+                        <div class="form-group">
+                          <label>Your email address</label>
+                          <input name="email" type="text" class="form-control" placeholder="Email" />
+                          <label>Your feedback for us</label>
+                          <textarea name="comments" class="form-control" rows="10" placeholder="Your thoughts"></textarea>
+                        </div>
+                            <button type="submit" class="btn btn-primary btn-lg pull-right">Submit</button>
+                        </form>
+                </div>
+                <h2>Identified keywords</h2>
+                <ul class="list-inline">
+                {% for key, values in keys.items %}
+                    {% if key != "the_featured_embed_" %}
+                        <li>"{{ key }}"</li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            {% else %}
+                <h2 id="no-keywords">Sorry!</h2>
+                <p>We were unable to figure out the topics of the text you submitted. This often happens when the text is too short. Please try again and <a href="{% url 'main' %}">enter more text</a>. If you think that it's our fault please <a href="{% url 'contact' %}">contact us</a>. </p>
+            {% endif %}
+            <h1>Submitted text</h1>
+            <p>We processed this text and searched for relevant open data in {{search_city}}.</p>
+            <div id="processed-text" style="padding-left: 50px; padding-right: 50px;">
+                <blockquote>{{ article_text }}</blockquote>
+            </div>
+        {% else %}
+            <h1>No text provided</h1>
+            <p>Please <a href="{% url 'main' %}">try again</a> and submit some text.</p>
+        {% endif %}
+    </div>
+{% endblock %}

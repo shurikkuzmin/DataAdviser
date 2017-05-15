@@ -1,0 +1,62 @@
+{% extends "base_site.html" %}
+{% load staticfiles %}
+
+{% block pre_container %}
+{% endblock %} {# pre_container #}
+
+{% block container %}
+</div> {# good bye container #}
+<div class="container-fluid" id="magback"> {# hello fluid container #}
+    <div class="container" style="padding-top:10px; padding-bottom:10px;">
+      <div class="row">
+          <div class="col-md-7" style="padding-top:25px;">
+              
+              <h1>Let us help you find data<br />and illustrate your articles</h1>
+              <p class="lead">Focus on writing your article and let DataAdviser search through large open data sources and create spectacular visualizations to accompany your text.</p>
+
+              <p>Take a test drive with one of these examples</p>
+              <div class="btn-group" role="group">
+                <a href="{% url 'replay_view' pkid=9 %}" class="btn btn-default" >Potholes</a>
+                {# <a href="{% url 'replay_view' pkid=80 %}" class="btn btn-default" >Example 2</a> #}
+                <a href="{% url 'replay_view' pkid=63 %}" class="btn btn-default" >Substance abuse</a>
+              </div>
+              <p>Or paste the text of an article below and see what DataAdviser can find for you in the city you select.</p>
+              
+              <form action="{% url 'text-process' %}" method="post" name="DemoText">
+                  {% csrf_token %}
+                  <div class="form-group clearfix">
+                    <textarea class="form-control" rows="3" name="article_text" id="ArticleForm" placeholder="Article text"></textarea>
+                    <label class="radio-inline">
+                      <input type="radio" name="search_city" id="search_city_bos" value="BOS"> Boston</input>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="search_city" id="search_city_cgo" value="CGO" checked> Chicago</input>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="search_city" id="search_city_nyc" value="NYC"> New York City</input>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="search_city" id="search_city_sfo" value="SFO"> San Francisco</input>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="search_city" id="search_city_mtl" value="MTL"> Montreal</input>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="search_city" id="search_city_edm" value="EDM"> Edmonton</input>
+                    </label>
+                    <p class="help-block">When you submit, we'll process your text and search for relevant open data from the chosen city. Don't worry, we'll add more cities soon. To request yours, please <a href="{% url 'contact' %}">contact us</a>.</p>
+                    <button type="submit" class="btn btn-primary btn-lg pull-right">Submit</button>
+                  </div>
+              </form>
+          </div> {# col-md-7 #}
+          <div class="col-md-5">
+              <img src="{% static 'img/HiRes_cropped_hflip_500.jpg' %}" class="img-responsive" alt="magnifying glass"></img>
+          </div> {# col-md-5 #}
+      </div> {# row #}
+    </div> {# container padding top #}
+</div> {# fluid container #}
+<div class="container"> {# and back... #}
+{% endblock %} {# container #}
+{% block extra_scripts %}
+{% endblock %}
+ 

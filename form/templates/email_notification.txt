@@ -1,0 +1,11 @@
+Type of articles: {{articles_types}}
+Published in the following materials: {{published_in}}
+Type of visualisation: {{visualisation}}
+Key features: {{features}}
+Type of data: {{data}}
+Comments: {{comments}}
+Email: {{email}}
+
+Raw submitted data:
+{{raw}}
+

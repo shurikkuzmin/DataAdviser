@@ -1,0 +1,34 @@
+body {
+  padding-top: 50px;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
+footer {
+  padding-top: 20px;
+}
+
+.navbar-inverse {
+  background-color: #1a687f;
+  border-color: #104c5e; 
+}
+
+.navbar-inverse .navbar-brand {
+  font-size: 150%;
+  color: #f0ecd6;
+}
+.navbar-inverse .navbar-brand:focus {
+  color: #f88379;
+}
+.navbar-inverse .navbar-brand:hover {
+  color: #f88379;
+}
+
+#magback
+{
+  background-color: #70ccd9;
+}
+

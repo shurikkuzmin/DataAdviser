@@ -1,0 +1,32 @@
+{% extends "base_site.html" %}
+{% load staticfiles %}
+
+{% block pre_container %}
+{% endblock %} {# pre_container #}
+
+{% block container %}
+<div class="row">
+    <div class="col-md-6  col-md-offset-3">
+        <h1>Contact us</h1>
+        <form action="{% url 'submit_to_email' %}" method="post" name="contact" role="form">
+        {% csrf_token %}
+          <div class="form-group">
+            <label for="input_name">Name</label>
+            <input type="text" class="form-control" name="name" id="input_name" placeholder="Your Name"/>
+          </div>
+          <div class="form-group">
+            <label for="input_email">Email address</label>
+            <input type="email" class="form-control" name="email" id="input_email" placeholder="Your Email"/>
+          </div>
+          <div class="form-group">
+            <label for="input_comments">Comments</label>
+            <textarea class="form-control" rows="3" name="comments" id="input_comments" placeholder="Comments/Feedback"></textarea>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+   </div>
+</div>
+{% endblock %} {# container #}
+{% block extra_scripts %}
+{% endblock %}
+ 
