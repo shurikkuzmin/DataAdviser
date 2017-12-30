@@ -3,10 +3,10 @@ import json
 import urllib2
 
 # Create your consumer with the proper key/secret.
-ckey = "q6yVAbqSByGhmajnf79terBi7"
-csecret = "9QcXdybsisDuRRrDARgnATWqY4qQR9d8dV5f422y6lM0OekwTz"
-akey = "119277384-9TxxQPXdL9ZqY14644wNz8gVtdw8ljVDAOL6nKC2"
-asecret = "VbYVfGdmZyTQeykd441Q3PjciQQHV3i8lbiXV6hAmX8Xj"
+ckey = ""
+csecret = ""
+akey = ""
+asecret = ""
 
 token = oauth.Token(key=akey, secret=asecret)
 consumer = oauth.Consumer(key = ckey, secret = csecret)

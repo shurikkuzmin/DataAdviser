@@ -33,8 +33,8 @@ The DataAdviser team"""
 #
 #The DataAdviser team"""
 
-username = "dataadviser@floatingpointlab.com"
-password = "datadvice20!%"
+username = ""
+password = ""
 #username = "app30707192@heroku.com"
 #password = "GSwv7PvxRCPIer5oPxIMVA"
 
